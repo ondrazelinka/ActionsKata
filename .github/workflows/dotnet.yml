@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Welcome Message
+        run: echo "Welcome to our GitHub Actions workflow!"
