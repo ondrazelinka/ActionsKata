@@ -15,16 +15,20 @@ jobs:
       - name: Welcome Message
         run: echo "Welcome to our GitHub Actions workflow!"
         
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '8.0.x'  # Change to the desired .NET Core version
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0.x'  # Change to the desired .NET Core version
 
-      - name: Restore dependencies
-        run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
